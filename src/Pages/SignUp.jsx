@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function SignUp() {
   
@@ -6,6 +8,7 @@ export default function SignUp() {
   const [Password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
+  const navigate= useNavigate()
  
   async function handleSubmit(e){
     e.preventDefault();  
@@ -33,6 +36,7 @@ export default function SignUp() {
 
       const data = await response.json();
       console.log('Success:', data);
+      navigate('/')
       }
     } catch (error) {
       console.log('Failed to fetch data:', error);  
